@@ -1,0 +1,80 @@
+<resources>
+    <!-- App -->
+    <string name="app_name">BeanMate</string>
+
+    <!-- General -->
+    <string name="ok">OK</string>
+    <string name="cancel">Batal</string>
+    <string name="save">Simpan</string>
+    <string name="update">Update</string>
+    <string name="delete">Hapus</string>
+    <string name="back">Kembali</string>
+    <string name="loading">Memuat...</string>
+    <string name="error">Terjadi kesalahan</string>
+
+    <!-- Splash -->
+    <string name="splash_title">BeanMate</string>
+    <string name="splash_subtitle">Jual Biji Kopi</string>
+
+    <!-- Home -->
+    <string name="home_title">Daftar Produk</string>
+    <string name="home_admin_login">Login Admin</string>
+    <string name="home_cart">Keranjang</string>
+
+    <!-- Product -->
+    <string name="product_detail_title">Detail Produk</string>
+    <string name="product_name">Nama Produk</string>
+    <string name="product_price">Harga</string>
+    <string name="product_description">Deskripsi</string>
+    <string name="product_add_to_cart">Tambah ke Keranjang</string>
+
+    <!-- Admin Login -->
+    <string name="admin_login_title">Login Admin</string>
+    <string name="admin_username">Username</string>
+    <string name="admin_password">Password</string>
+    <string name="admin_login_button">Login</string>
+    <string name="admin_login_failed">Login gagal</string>
+
+    <!-- Admin Product Management -->
+    <string name="admin_manage_title">Kelola Produk</string>
+    <string name="admin_add_product">Tambah Produk</string>
+    <string name="admin_edit_product">Edit Produk</string>
+
+    <!-- Entry / Edit Product Form -->
+    <string name="form_title_add">Tambah Produk</string>
+    <string name="form_title_edit">Edit Produk</string>
+    <string name="form_hint_name">Masukkan nama produk</string>
+    <string name="form_hint_price">Masukkan harga (angka)</string>
+    <string name="form_hint_description">Masukkan deskripsi</string>
+    <string name="form_choose_image">Pilih Gambar</string>
+
+    <!-- Cart -->
+    <string name="cart_title">Keranjang</string>
+    <string name="cart_empty">Keranjang masih kosong</string>
+    <string name="cart_total">Total</string>
+    <string name="cart_checkout">Checkout</string>
+    <string name="cart_remove_item">Hapus Item</string>
+    <string name="cart_update_qty">Update Jumlah</string>
+
+    <!-- Checkout -->
+    <string name="checkout_title">Checkout</string>
+    <string name="checkout_summary">Ringkasan Pesanan</string>
+    <string name="checkout_success">Checkout berhasil</string>
+    <string name="checkout_failed">Checkout gagal</string>
+    <string name="checkout_name">Nama Lengkap</string>
+    <string name="checkout_address">Alamat Lengkap</string>
+    <string name="checkout_phone">No. Telepon</string>
+    <string name="checkout_now">Checkout Sekarang</string>
+    <string name="checkout_view_order">Lihat Pesanan</string>
+
+    <!-- Validation messages -->
+    <string name="msg_field_required">Field tidak boleh kosong</string>
+    <string name="msg_invalid_price">Harga tidak valid</string>
+
+    <!-- Orders -->
+    <string name="orders_title">Riwayat Pesanan</string>
+    <string name="order_detail_title">Detail Pesanan</string>
+    <string name="checkout_go_orders">Lihat Riwayat Pesanan</string>
+    <string name="retry">Coba Lagi</string>
+
+</resources>
