@@ -53,7 +53,7 @@ fun HostNavigasi(
                 navigateToDetail = { id ->
                     navController.navigate("${DestinasiDetailProduk.route}/$id")
                 },
-                navigateToCart = { navController.navigate(DestinasiCart.route) }, // ✅ tambahkan ini
+                navigateToCart = { navController.navigate(DestinasiCart.route) },
                 refreshTrigger = refreshHome,
                 onRefreshConsumed = { entry.savedStateHandle["refresh_home"] = false }
             )
@@ -88,6 +88,7 @@ fun HostNavigasi(
                 navigateToEntry = { navController.navigate(DestinasiEntryProduk.route) },
                 navigateToEdit = { id -> navController.navigate("${DestinasiEditProduk.route}/$id") },
                 onProdukChanged = {
+                    // Pemicu refresh untuk Home (agar list produk sinkron setelah hapus/edit)
                     navController.getBackStackEntry(DestinasiHome.route)
                         .savedStateHandle["refresh_home"] = true
                 },
@@ -155,14 +156,20 @@ fun HostNavigasi(
                     navController.navigate("${DestinasiOrderDetail.route}/$orderId")
                 },
                 onCheckoutSuccess = {
+                    // Refresh Daftar Pesanan
                     runCatching {
                         navController.getBackStackEntry(DestinasiOrders.route)
                             .savedStateHandle["refresh_orders"] = true
                     }
 
+
                     runCatching {
                         navController.getBackStackEntry(DestinasiCart.route)
                             .savedStateHandle["refresh_cart"] = true
+                    }
+                    runCatching {
+                        navController.getBackStackEntry(DestinasiHome.route)
+                            .savedStateHandle["refresh_home"] = true
                     }
                 }
             )
@@ -192,6 +199,5 @@ fun HostNavigasi(
                 orderId = orderId
             )
         }
-
     }
 }
