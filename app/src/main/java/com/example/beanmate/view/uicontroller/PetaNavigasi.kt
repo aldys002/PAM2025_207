@@ -88,7 +88,7 @@ fun HostNavigasi(
                 navigateToEntry = { navController.navigate(DestinasiEntryProduk.route) },
                 navigateToEdit = { id -> navController.navigate("${DestinasiEditProduk.route}/$id") },
                 onProdukChanged = {
-                    // Pemicu refresh untuk Home (agar list produk sinkron setelah hapus/edit)
+                    // Refresh Home saat ada yang dihapus
                     navController.getBackStackEntry(DestinasiHome.route)
                         .savedStateHandle["refresh_home"] = true
                 },
@@ -101,11 +101,9 @@ fun HostNavigasi(
             HalamanEntryProduk(
                 navigateBack = { navController.navigateUp() },
                 onProdukChanged = {
-                    // refresh home
+                    // Refresh Home & Kelola saat produk ditambah
                     navController.getBackStackEntry(DestinasiHome.route)
                         .savedStateHandle["refresh_home"] = true
-
-                    // refresh kelola
                     runCatching {
                         navController.getBackStackEntry(DestinasiKelolaProduk.route)
                             .savedStateHandle["refresh_produk"] = true
@@ -121,11 +119,9 @@ fun HostNavigasi(
             HalamanEditProduk(
                 navigateBack = { navController.navigateUp() },
                 onProdukChanged = {
-                    // refresh home
+                    // Refresh Home & Kelola saat produk diedit
                     navController.getBackStackEntry(DestinasiHome.route)
                         .savedStateHandle["refresh_home"] = true
-
-                    // refresh kelola
                     runCatching {
                         navController.getBackStackEntry(DestinasiKelolaProduk.route)
                             .savedStateHandle["refresh_produk"] = true
@@ -156,20 +152,13 @@ fun HostNavigasi(
                     navController.navigate("${DestinasiOrderDetail.route}/$orderId")
                 },
                 onCheckoutSuccess = {
-                    // Refresh Daftar Pesanan
-                    runCatching {
-                        navController.getBackStackEntry(DestinasiOrders.route)
-                            .savedStateHandle["refresh_orders"] = true
-                    }
-
+                    // Refresh Home agar keranjang jadi 0
+                    navController.getBackStackEntry(DestinasiHome.route)
+                        .savedStateHandle["refresh_home"] = true
 
                     runCatching {
                         navController.getBackStackEntry(DestinasiCart.route)
                             .savedStateHandle["refresh_cart"] = true
-                    }
-                    runCatching {
-                        navController.getBackStackEntry(DestinasiHome.route)
-                            .savedStateHandle["refresh_home"] = true
                     }
                 }
             )
